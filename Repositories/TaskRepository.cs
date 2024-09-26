@@ -11,6 +11,15 @@ public class TaskRepository : ITaskRepository {
     }
 
     public async Task AddAsync(TaskEntity task) {
-        await _context.AddTaskAsync(task); 
+        await _context.AddTaskAsync(task);
+    }
+
+    public async Task<TaskEntity> GetByIdAsync(string id) {
+        return await _context.GetTaskByIdAsync(id);
+    }
+
+    public async Task<TaskEntity> UpdateAsync(TaskEntity task) {
+        await _context.UpdateTaskAsync(task);
+        return task;
     }
 }
