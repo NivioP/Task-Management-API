@@ -1,4 +1,7 @@
 using Amazon.DynamoDBv2;
+using TaskManagementAPI.Data;
+using TaskManagementAPI.Repositories;
+using TaskManagementAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +13,7 @@ builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions("AWS")
 builder.Services.AddAWSService<IAmazonDynamoDB>(); // Register DynamoDB client
 
 // Add controllers
-builder.Services.AddControllers(); 
+builder.Services.AddControllers();
 
 // Add other services
 builder.Services.AddScoped<DynamoDbContext>();
